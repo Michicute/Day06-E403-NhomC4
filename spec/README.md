@@ -115,9 +115,9 @@ Prototype xử lý bằng safety gate bắt buộc:
 |---|---|---|
 | L.V.Khiêm | Research / evidence | Evidence pack, link nguồn CDC/MedlinePlus/WHO/OpenScience, prompt self-use và observation. |
 | P.K.Khang | Thin SPEC | SPEC cuối, sơ đồ flow, 4 paths, checklist safety. |
-| N.D.Hưng | Prototype | Demo chatbot: NER, planner, vector mock/search, medicine CSV/SQL, context fusion, LLM response. |
+| N.D.M.Chí | Prototype | Demo chatbot: NER, planner, vector mock/search, medicine CSV/SQL, context fusion, LLM response. |
 | T.D.Mạnh | Test / failure path | Test cases happy, low-confidence, red flag, correction; log input/output. |
-| N.D.M.Chí | Demo script / repo | Script demo 3-5 phút, README chạy prototype, screenshot minh họa. |
+| N.D.Hưng | Demo script / repo | Script demo 3-5 phút, README chạy prototype, screenshot minh họa. |
 
 ## Checklist demo
 
