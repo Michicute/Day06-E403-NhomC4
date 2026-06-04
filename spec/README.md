@@ -121,9 +121,9 @@ Prototype xử lý bằng safety gate bắt buộc:
 
 ## Checklist demo
 
-- [ ] Happy path trả lời đủ 5 khối.
-- [ ] Low-confidence path hỏi lại thay vì đoán.
-- [ ] Red-flag path ưu tiên đi khám/cấp cứu.
-- [ ] Drug-caution path không khuyên dùng Paracetamol khi có bệnh gan/cảnh báo thuốc.
-- [ ] Correction path cập nhật entity và rerun search.
+- [x] Happy path trả lời đủ 5 khối.
+- [x] Low-confidence path hỏi lại thay vì đoán.
+- [x] Red-flag path ưu tiên đi khám/cấp cứu.
+- [x] Drug-caution path không khuyên dùng Paracetamol khi có bệnh gan/cảnh báo thuốc.
+- [x] Correction path cập nhật entity và rerun search.
 - [ ] Mỗi câu trả lời có source ID/link và disclaimer ngắn.

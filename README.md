@@ -131,4 +131,4 @@ AI được dùng để hiểu câu hỏi, chọn nguồn dữ liệu liên quan
 - [x] Có prototype chạy được trong `codebase/`.
 - [x] Có ít nhất một flow AI/RAG chạy thật.
 - [x] Có mô tả cách cài đặt và chạy demo.
-- [ ] Điền đầy đủ mã học viên vào bảng phân công.
+- [x] Điền đầy đủ mã học viên vào bảng phân công.
