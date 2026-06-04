@@ -6,7 +6,7 @@
 
 - Đưa mã nguồn của prototype vào folder này. Nếu prototype được deploy hoặc host ở nơi khác, hãy để lại đường link kèm hướng dẫn truy cập.
 - Trong file `README.md` của nhóm, ghi rõ ba điều: cách chạy prototype (các bước cài đặt và biến môi trường nếu cần), những công cụ và API đã dùng (model AI, framework, công cụ dựng giao diện…), và phần phân công ai làm gì.
-- Mỗi thành viên nên có ít nhất một commit thực chất trong repo — đây là căn cứ để ghi nhận đóng góp của từng người.
+- Trong phần phân công, ghi rõ ai phụ trách việc gì (viết và kiểm thử prompt, dựng giao diện, giữ repo, viết kịch bản demo…) — đây là căn cứ để ghi nhận đóng góp của từng người.
 
 ## Lưu ý
 

@@ -16,13 +16,13 @@ Ví dụ: `Day06-C401-Nhom03`
 
 - **README của repo nhóm phải liệt kê đủ thành viên** — mỗi người gồm **mã học viên + họ và tên**.
 - Đại diện nhóm nộp **link repo** lên LMS. **Hạn nộp: 23:59 ngày 04/06/2026.**
-- Mỗi thành viên cần **ít nhất một commit thực chất** trong repo (không commit = mất điểm cá nhân).
+- README cũng cần **ghi rõ phân công công việc** — ai trong nhóm phụ trách phần nào (SPEC, prototype, giao diện, kịch bản demo…).
 
 ### Cấu trúc repo nhóm
 
 ```
 Day06-Lop-NhomXX/
-├── README.md        ← Danh sách thành viên (mã HV + họ tên) + mô tả ngắn sản phẩm
+├── README.md        ← Thành viên (mã HV + họ tên) + phân công công việc + mô tả ngắn sản phẩm
 ├── spec/            ← SPEC sản phẩm (xem hướng dẫn trong spec/)
 └── codebase/        ← Toàn bộ code prototype (xem hướng dẫn trong codebase/)
 ```
@@ -86,7 +86,7 @@ Chi tiết luật chơi + cách chấm: [`hackathon-rules.md`](hackathon-rules.m
 | Bài tập UX (Day 5) | 10 |
 | Phản ánh cá nhân (reflection) | 25 |
 
-**Điều kiện chặn:** prototype không có lời gọi AI thật → giới hạn 4/10 · không có commit → mất điểm cá nhân · không giải thích được phần mình khi bị hỏi → 0 điểm demo cá nhân.
+**Điều kiện chặn:** prototype không có lời gọi AI thật → giới hạn 4/10 · không giải thích được phần mình khi bị hỏi → 0 điểm demo cá nhân.
 
 ---
 
