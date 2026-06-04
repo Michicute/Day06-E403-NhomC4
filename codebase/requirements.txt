@@ -1,0 +1,6 @@
+pandas
+scikit-learn
+streamlit
+streamlit-geolocation
+openai
+python-dotenv
