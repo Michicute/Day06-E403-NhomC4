@@ -1,103 +1,134 @@
-# Batch 02 · Day 06 — AI Product Hackathon
+# Day06-E403-NhomC4
 
-> SPEC → Prototype → Demo. Hôm nay không có bài giảng mới — hôm nay chứng minh: SPEC là giả thuyết, prototype là bằng chứng, demo là thuyết phục.
+Repository bài nộp Day 06 - AI Product Hackathon của nhóm C4, lớp E403.
 
----
+Sản phẩm prototype là **Trợ lý y tế RAG**: một website mô phỏng nhà thuốc số có chatbot AI hỗ trợ hỏi đáp về triệu chứng nhẹ, thuốc OTC, tác dụng phụ, thành phần thuốc và gợi ý tìm cơ sở y tế gần người dùng.
 
-## Cách nộp bài
+> Lưu ý: Đây là prototype học tập, không thay thế bác sĩ, dược sĩ hoặc tư vấn y tế chuyên môn.
 
-**Đại diện nhóm tạo MỘT repo nhóm**, đặt tên:
+## Thành viên và phân công
 
-```
-Day06-Lop-NhomXX
-```
+| Mã học viên | Thành viên | Phụ trách | Bằng chứng cần có |
+|---|---|---|---|
+| 2A202600542 | L.V.Khiêm | Research / evidence | Evidence pack, link nguồn CDC/MedlinePlus/WHO/OpenScience, prompt self-use và observation. |
+| 2A202600882 | P.K.Khang | Thin SPEC | SPEC cuối, sơ đồ flow, demo paths, checklist safety. |
+| 2A202600820 | N.D.M.Chí | Prototype | Demo chatbot: NER, planner, vector mock/search, medicine CSV/SQL, context fusion, LLM response. |
+| 2A202600734 | T.D.Mạnh | Test / failure path | Test cases happy, low-confidence, red flag, correction; log input/output. |
+| 2A202600578 | N.D.Hưng | Demo script / repo | Script demo 3-5 phút, README chạy prototype, screenshot minh họa. |
 
-Ví dụ: `Day06-C401-Nhom03`
+## Product slice
 
-- **README của repo nhóm phải liệt kê đủ thành viên** — mỗi người gồm **mã học viên + họ và tên**.
-- Đại diện nhóm nộp **link repo** lên LMS. **Hạn nộp: 23:59 ngày 04/06/2026.**
-- README cũng cần **ghi rõ phân công công việc** — ai trong nhóm phụ trách phần nào (SPEC, prototype, giao diện, kịch bản demo…).
+Người dùng mục tiêu là người trưởng thành hỏi bằng ngôn ngữ tự nhiên về các triệu chứng phổ biến và thuốc thông dụng, ví dụ:
 
-### Cấu trúc repo nhóm
-
-```
-Day06-Lop-NhomXX/
-├── README.md        ← Thành viên (mã HV + họ tên) + phân công công việc + mô tả ngắn sản phẩm
-├── spec/            ← SPEC sản phẩm (xem hướng dẫn trong spec/)
-└── codebase/        ← Toàn bộ code prototype (xem hướng dẫn trong codebase/)
+```text
+Tôi sốt, đau đầu, nghi cúm, có uống Paracetamol được không?
 ```
 
----
+Prototype dùng AI/RAG để:
 
-## Lịch ngày 06 — 04/06/2026
+1. Trích xuất triệu chứng, thuốc, bệnh/ý định hỏi và mức độ tự tin.
+2. Phát hiện dấu hiệu rủi ro hoặc thông tin an toàn còn thiếu.
+3. Truy xuất Q&A y tế liên quan từ dữ liệu local.
+4. Truy xuất thông tin thuốc từ medicine database.
+5. Tổng hợp context và tạo câu trả lời có cấu trúc, có nguồn, có giới hạn an toàn.
 
-| Giờ | Mốc | Cần đạt |
-|-----|-----|---------|
-| Sáng | Build | Bắt đầu từ SPEC nhẹ đã làm ở Day 5 |
-| **11:00** | Checkpoint 1 | **Show được ít nhất mockup/prototype chạy được** |
-| **13:00** | Checkpoint 2 | **Lắp được AI vào ít nhất 1 flow** |
-| **15:30** | Checkpoint 3 | **Chuẩn bị xong tài liệu demo + slide** |
-| **16:00** | Demo round | Trình bày trong zone, 10 phút/nhóm |
+## Tính năng chính
 
----
+- Giao diện Streamlit mô phỏng website nhà thuốc số.
+- Chatbot popup hỏi đáp về thuốc, triệu chứng, bệnh thường gặp, công dụng và tác dụng phụ.
+- RAG local bằng TF-IDF trên hai nguồn dữ liệu: medical Q&A và catalog thuốc.
+- Có thể chạy không cần API key; nếu có `OPENAI_API_KEY`, chatbot sinh câu trả lời tự nhiên hơn.
+- Hiển thị nguồn tham khảo đã retrieve kèm metadata/điểm liên quan.
+- Hỗ trợ ngữ cảnh hội thoại cho câu hỏi tiếp nối.
+- Tìm nhà thuốc, bệnh viện hoặc phòng khám gần người dùng qua vị trí trình duyệt/IP và OpenStreetMap Overpass API.
 
-## Tracks
+## Cấu trúc repo
 
-Mỗi nhóm chọn một lĩnh vực, lấy một app thật trong đó để soi và cải tiến:
+```text
+Day06-E403-NhomC4/
+├── README.md              # README chính: mô tả sản phẩm, thành viên, phân công, cách chạy
+├── hackathon-rules.md     # Luật hackathon và cách chấm
+├── spec/                  # SPEC sản phẩm và các demo paths
+└── codebase/              # Source code prototype Streamlit/RAG
+```
 
-| Track | App thật gợi ý |
-|-------|----------------|
-| **Learning OS** (Vin AI Thực Chiến) | LMS khóa học, Discord lớp |
-| **Travel & Hospitality** | Vinpearl, Sun World / SunGroup |
-| **Food & Local Delivery** | ShopeeFood, GrabFood, BeFood, Xanh SM Ngon |
-| **Personal Finance** | MoMo, ZaloPay, app ngân hàng |
-| **Healthcare** | Vinmec, Long Châu, Pharmacity |
+Chi tiết source code nằm trong [`codebase/README.md`](codebase/README.md). SPEC đầy đủ nằm trong [`spec/README.md`](spec/README.md).
 
-> Các nhóm **cùng track** ngồi **cùng một zone** khi demo.
+## Cài đặt và chạy demo
 
----
+Yêu cầu Python 3.10+.
 
-## Kỳ vọng mỗi demo
+```bash
+cd codebase
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+streamlit run app.py
+```
 
-1. **Product Canvas** — giới thiệu ý tưởng và nỗi đau (painpoint) của người dùng.
-2. **Demo full luồng end-to-end** — show cả happy case lẫn error case.
-3. **AI chạy thật trong ít nhất 1 flow** — không chỉ mockup tĩnh.
+Sau khi chạy, mở URL Streamlit hiển thị trong terminal. Nút **Trợ lý** nằm ở góc phải màn hình để mở chatbot.
 
----
+Ứng dụng chạy được không cần API key. Nếu muốn dùng OpenAI, tạo file `codebase/.env`:
 
-## Demo round (16:00)
+```bash
+OPENAI_API_KEY=your_api_key_here
+OPENAI_MODEL=gpt-4o-mini
+```
 
-- Mỗi nhóm **10 phút** (≈ 5 phút trình bày + 5 phút Q&A).
-- Các nhóm khác **phản biện, đặt câu hỏi**.
-- **Đánh giá chéo qua form**: thành viên các nhóm khác chấm điểm.
-- **Tổng kết**: nhóm điểm cao nhất mỗi zone được **bonus**; còn thời gian thì các nhóm điểm cao **present trước cả lớp**; giảng viên đánh giá.
+Không commit file `.env` lên repo.
 
-Chi tiết luật chơi + cách chấm: [`hackathon-rules.md`](hackathon-rules.md)
+## Dữ liệu và công nghệ
 
----
+| Hạng mục | Nội dung |
+|---|---|
+| Framework UI | Streamlit |
+| Retrieval | scikit-learn TF-IDF + cosine similarity |
+| LLM optional | OpenAI API |
+| Data processing | pandas |
+| Location search | streamlit-geolocation, OpenStreetMap Overpass API, IP geolocation fallback |
+| Q&A data | `codebase/data_clean.csv`, từ `train.csv` đã làm sạch |
+| Medicine data | `codebase/medicine_clean.csv`, từ `Medicine_Details.csv` đã làm sạch |
+| EDA outputs | `codebase/eda_outputs/` |
 
-## Chấm điểm (Day 5 + Day 6 = 100 điểm)
+## Luồng AI
 
-| Hạng mục | Điểm |
-|----------|------|
-| SPEC | 25 |
-| Prototype | 15 |
-| Demo Day | 25 |
-| Bài tập UX (Day 5) | 10 |
-| Phản ánh cá nhân (reflection) | 25 |
+```text
+User input
+  -> Entity Extraction / intent understanding
+  -> Safety Gate
+  -> RAG Retriever
+  -> Medicine Search
+  -> Context Fusion
+  -> Final Response
+  -> User correction / rerun nếu cần
+```
 
-**Điều kiện chặn:** prototype không có lời gọi AI thật → giới hạn 4/10 · không giải thích được phần mình khi bị hỏi → 0 điểm demo cá nhân.
+AI được dùng để hiểu câu hỏi, chọn nguồn dữ liệu liên quan, tổng hợp context và draft câu trả lời. AI không được chẩn đoán chắc chắn, kê đơn, cá nhân hóa liều thuốc khi thiếu dữ kiện, hoặc bỏ qua dấu hiệu nguy hiểm.
 
----
+## Demo paths
 
-## Tài liệu trong repo này
+| Path | Input ví dụ | Expected behavior |
+|---|---|---|
+| Happy | `Tôi sốt 38.5, đau đầu, nghi cúm, có uống Paracetamol được không?` | Extract đúng entity, retrieve Q&A + medicine, trả lời có cấu trúc, có nguồn và cảnh báo theo dõi. |
+| Low-confidence | `Em nóng người đau nhức uống thuốc gì?` | Không đoán thuốc/bệnh; hỏi lại 2-3 câu về tuổi, nhiệt độ, thời gian sốt, bệnh nền/thuốc đang dùng và dấu hiệu nặng. |
+| Red flag | `Tôi sốt, đau ngực, khó thở, uống Paracetamol được không?` | Ưu tiên cảnh báo đi khám/cấp cứu, không tư vấn dùng thuốc. |
+| Drug caution | `Tôi bệnh gan, sốt đau đầu, uống Paracetamol được không?` | Không khuyên dùng; yêu cầu hỏi bác sĩ/dược sĩ và hiển thị cảnh báo thuốc. |
+| Correction | `Không phải Paracetamol, là Ibuprofen` | Cập nhật medicine entity, chạy lại Medicine Search và sửa câu trả lời. |
+
+## Tài liệu liên quan
 
 | Folder / file | Nội dung |
-|---------------|----------|
-| [`hackathon-rules.md`](hackathon-rules.md) | Luật chơi, lịch, demo round, cách chấm |
-| [`spec/`](spec/) | Hướng dẫn viết SPEC sản phẩm (nối tiếp SPEC nhẹ Day 5) |
-| [`codebase/`](codebase/) | Yêu cầu nộp code prototype |
+|---|---|
+| [`spec/README.md`](spec/README.md) | SPEC sản phẩm, product slice, safety gate, demo paths, phân công chi tiết |
+| [`codebase/README.md`](codebase/README.md) | Cách chạy prototype, cấu trúc source code, công cụ/API đã dùng |
+| [`codebase/RAG_AGENT.md`](codebase/RAG_AGENT.md) | Ghi chú kỹ thuật riêng cho RAG agent |
+| [`hackathon-rules.md`](hackathon-rules.md) | Luật chơi, lịch demo và cách chấm |
 
----
+## Checklist nộp bài
 
-*Batch 02 · Ngày 06 — VinUni A20 · AI Thực Chiến · 2026*
+- [x] Có README chính liệt kê thành viên, mã học viên và phân công.
+- [x] Có SPEC trong `spec/`.
+- [x] Có prototype chạy được trong `codebase/`.
+- [x] Có ít nhất một flow AI/RAG chạy thật.
+- [x] Có mô tả cách cài đặt và chạy demo.
+- [ ] Điền đầy đủ mã học viên vào bảng phân công.
